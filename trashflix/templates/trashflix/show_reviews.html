@@ -2,18 +2,18 @@
 
 {% block content %}
 
-    <div class="col-sm-12">
+<div class="col-sm-12">
 
     {% for review in reviews %}
 
-        <h3><a href="{% url 'trashflix:review_detail' review_pk=review.pk %}">{{ review.title }}</a></h3>
+    <h3><a href="{% url 'trashflix:review_detail' review_pk=review.pk %}">{{ review.title }}</a></h3>
 
     {% empty %}
 
-        <h3>No reviews yet exist!</h3>
+    <h3>No reviews yet exist!</h3>
 
     {% endfor %}
 
-    </div>
+</div>
 
 {% endblock %}

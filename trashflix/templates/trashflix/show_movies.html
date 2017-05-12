@@ -2,32 +2,52 @@
 
 {% block content %}
 
-    <div class="row">
-        <div class="col-lg-12">
-            <br><br>
-            <form action="{% url 'trashflix:show_movies' %}">
+<div class="row">
+    <div class="col-lg-12">
+        <br><br>
+        <form action="{% url 'trashflix:show_movies' %}">
             {{ search_form }}
             <input type="submit" value="Search Movies">
-                <br><br>
+            <br><br>
         </form>
-        </div>
     </div>
-    <div class="row">
+</div>
+<div class="row">
     <div class="col-lg-12">
-        <ol>
-            {% for movie in movies %}
-            <li><a href="{% url 'trashflix:movie_detail' movie_pk=movie.pk %}"><img src="{{ movie.poster_url }}" width="150" height="275"></a>
-            <p><b>Directed by: </b> {{ movie.director }} <br>
-                    <b>Released on: </b> {{ movie.released }} <br>
-                    <b>{{ movie.plot }}</b>
-</p>
-                <hr></li>
-            {% empty %}
-                <p style="margin: 30px; ">No.</p>
-            {% endfor %}
 
-        </ol>
+        {% for movie in movies %}
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-4">
+                    <a href="{% url 'trashflix:movie_detail' movie_pk=movie.pk %}"><img src="{{ movie.poster_url }}"
+                                                                                        width="150" height="275"
+                                                                                        align="left"></a>
+                </div>
+                <div class="col-lg-8">
+                    <div class="movie-info"
+                         style="background-color: #bbbbbb; color: #444; border: solid 1px black; border-radius: 15px; padding: 15px;">
+
+                        <b>Directed by: </b> {{ movie.director }} <br>
+                        <b>Released on: </b> {{ movie.released }} <br>
+                        <hr>
+                        <b>{{ movie.plot }}</b>
+
+                    </div>
+                </div>
+
+            </div>
         </div>
+        <hr>
+
     </div>
+</div>
+{% empty %}
+<p style="margin: 30px; ">No.</p>
+{% endfor %}
+
+</ol>
+</div>
+</div>
 
 {% endblock %}
