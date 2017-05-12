@@ -1,0 +1,44 @@
+{% extends 'trashflix/base.html' %}
+{% block content %}
+    <a href="{% url 'trashflix:add_review' movie_pk=movie.pk %}">Review this "film"!</a>
+    <hr>
+    {% if message %}
+        {{ message }}
+    {% endif %}
+    <div class="col-sm-4">
+            <div class="poster_img">
+                {% if movie.poster_url %}
+                    <img src="{{ movie.poster_url }}" width="175" height="300" alt="{{ movie.title }}">
+                {% else %}
+                    <!-- Hang in there! -->
+                    <img src="https://s-media-cache-ak0.pinimg.com/originals/70/7e/53/707e533494d1115205468b2e2bf5be7b.jpg" width="175" height="300" alt="No image!">
+                {% endif %}
+            </div>
+    </div>
+    <div class="col-sm-8">
+            <h3>{{ movie.title }}</h3>
+        <div class="movie_detail">
+      <p>
+          <b>Released: </b>{{ movie.released }} <br>
+          <b>Director: </b>{{ movie.director }} <br>
+          <b>Writer: </b>{{ movie.writer }} <br>
+          <b>Starring: </b> {{ movie.actors }} <br>
+          <b>Rated: </b> {{ movie.rated }} <br>
+          <b>Runtime: </b> {{ movie.runtime }} <br>
+          <b>Production: </b> {{ movie.production }} <br>
+          <b>Genre: </b> {{ movie.genre }} <br><br>
+          <b>Plot: </b> {{ movie.plot }} <br>
+        </p>
+        </div>
+    </div>
+    <form method="post" action="{% url 'trashflix:movie_detail' movie_pk=movie.pk %}">
+        <table id="etc">
+            {% csrf_token %}
+            {{ form.as_table }}
+            <input type="submit" value="Add to Watchlist">
+        </table>
+    </form>
+
+
+
+{% endblock %}

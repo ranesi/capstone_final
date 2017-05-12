@@ -1,0 +1,23 @@
+{% extends 'trashflix/base.html' %}
+
+{% block content %}
+
+    <div class="col-sm-12">
+
+        <form action="{% url 'trashflix:show_movies' %}">
+            {{ search_form }}
+            <input type="submit" value="Search Movies">
+        </form>
+
+        <ol>
+            {% for movie in movies %}
+                <li><a href="{% url 'trashflix:movie_detail' movie_pk=movie.pk %}"><img src="{{ movie.poster_url }}" width="150" height="275">{{ movie.title }}</a></li>
+
+                <hr>
+            {% empty %}
+                <p style="margin: 30px; ">No.</p>
+            {% endfor %}
+        </ol>
+    </div>
+
+{% endblock %}

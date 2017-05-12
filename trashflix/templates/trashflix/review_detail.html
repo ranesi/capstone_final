@@ -1,0 +1,19 @@
+{% extends 'trashflix/base.html' %}
+{% block content %}
+    <div class="review" style="background-color: #333; color:#ddd; border: 1px solid black; border-radius: 15px">
+        <div class="col-sm-12">
+            <h3>{{ review.author.username }}'s review of {{ review.movie.title }}</h3>
+            {% if review.review_date %}
+                <div class="date" style="font-variant: small-caps;">
+                    {{ review.review_date }}
+                </div>
+            {% endif %}
+            <h2>{{ review.title }}</h2>
+            <p>
+                {{ review.body }}
+            <hr>
+            Rating: {{ review.rating }} / 10
+            </p>
+        </div>
+    </div>
+{% endblock %}

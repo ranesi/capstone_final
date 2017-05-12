@@ -1,0 +1,17 @@
+{% extends 'trashflix/base.html' %}
+{% block content %}
+    <div class="col-sm-8">
+    <h3>Review for {{ movie.title }}</h3>
+
+    <form method="post" action="{% url 'trashflix:add_review' movie_pk=movie.pk %}">
+        {% csrf_token %}
+        <table id="add_review_form">
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Submit">
+    </form>
+    </div>
+    <div class="col-sm-4">
+        <img src="{{ movie.poster_url }}" height="300" width="185">
+    </div>
+{% endblock %}

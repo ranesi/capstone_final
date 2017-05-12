@@ -1,0 +1,22 @@
+{% extends 'trashflix/base.html' %}
+{% block content %}
+    <div class="col-sm-12">
+        {% if user.is_authenticated %}
+            <p>
+                Consider <a href="{% url 'trashflix:add_movie' %}">adding a movie for review.</a>
+            </p>
+        {% else %}
+            <p>Log in to use this site in any meaningful capacity!</p>
+        {% endif %}
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            {% for review in reviews %}
+                <h3><a href="{% url 'trashflix:review_detail' review_pk=review.pk %}">{{ review.title }}</a></h3> <p>by {{ review.author.username }}, reviewing {{ review.movie.title }}</p><img src="{{ review.movie.poster_url }}" width="50" height="75">
+                <hr>
+            {% empty %}
+                No reviews yet!
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

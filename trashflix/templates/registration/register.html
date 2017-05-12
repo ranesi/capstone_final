@@ -1,0 +1,13 @@
+{% extends 'trashflix/base.html' %}
+{% block content %}
+<div class="col-sm-12">
+    <form method="post" action="">
+        {% csrf_token %}
+        <table id="registration_form">
+            {{ form.as_table }}
+        </table>
+        <button type="submit">Submit!</button>
+    </form>
+</div>
+
+{% endblock %}
