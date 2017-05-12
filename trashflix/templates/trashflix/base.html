@@ -7,29 +7,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Trashflix</title>
-    <!-- Bootstrap stuff -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
     <!-- static files -->
+
     <link rel="stylesheet" href="{% static 'css/boostrap.min.css' %}">
     <!--<link rel="stylesheet" href="{% static 'css/scrolling-nav.css' %}">-->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/logo-nav.css' %}">
 
+    <link rel="stylesheet" href="{% static 'css/trashflix.css' %}">
+
 </head>
 <body style="background-color: #101010">
-        <!--style="-->
-        <!--background: -webkit-linear-gradient(#222, #101010);-->
-        <!--background: -moz-linear-gradient(#222, #101010);-->
-        <!--background: -ms-linear-gradient(#222, #101010);-->
-        <!--background: -o-linear-gradient(#222, #101010);-->
-        <!--background: linear-gradient(#222222, #101010);-->
-        <!--height: 100%;-->
-        <!-- -webkit-background-size: cover;-->
-        <!-- -moz-background-size: cover;-->
-        <!-- -o-background-size: cover;-->
-        <!--background-size: cover;-->
-        <!--background-repeat: no-repeat;">-->
+<!--style="-->
+<!--background: -webkit-linear-gradient(#222, #101010);-->
+<!--background: -moz-linear-gradient(#222, #101010);-->
+<!--background: -ms-linear-gradient(#222, #101010);-->
+<!--background: -o-linear-gradient(#222, #101010);-->
+<!--background: linear-gradient(#222222, #101010);-->
+<!--height: 100%;-->
+<!-- -webkit-background-size: cover;-->
+<!-- -moz-background-size: cover;-->
+<!-- -o-background-size: cover;-->
+<!--background-size: cover;-->
+<!--background-repeat: no-repeat;">-->
 
 
 <!-- Navigation -->
@@ -54,13 +55,25 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 {% if user.is_authenticated %}
-                <li><a href="{% url 'trashflix:watchlist' %}">Your Watchlist</a></li>
-                <li><a href="{% url 'trashflix:add_movie' %}">Add Movie</a></li>
-                <li><a href="{% url 'trashflix:show_movies' %}">Show Movies</a></li>
-                <li><a href="{% url 'trashflix:show_reviews' %}">See Reviews</a></li>
-                <li><a href="{% url 'logout' %}?next={% url 'trashflix:logout_message' %}">Logout</a></li>
+                <li>
+                    <a href="{% url 'trashflix:watchlist' %}">Your Watchlist</a>
+                </li>
+                <li>
+                    <a href="{% url 'trashflix:add_movie' %}">Add Movie</a>
+                </li>
+                <li>
+                    <a href="{% url 'trashflix:show_movies' %}">Show Movies</a>
+                </li>
+                <li>
+                    <a href="{% url 'trashflix:show_reviews' %}">See Reviews</a>
+                </li>
+                <li>
+                    <a href="{% url 'logout' %}?next={% url 'trashflix:logout_message' %}">Logout</a>
+                </li>
                 {% else %}
-                <li><a href="{% url 'login' %}">Log in or sign up.</a></li>
+                <li>
+                    <a href="{% url 'login' %}">Log in or sign up.</a>
+                </li>
                 {% endif %}
             </ul>
         </div>
