@@ -2,7 +2,7 @@
 {% block content %}
 <div class="row">
     <div class="col-lg-12">
-        <div class="hello_user">
+        <div class="hello_user" style="">
             {% if user.is_authenticated %}
             <p>
                 Consider <a href="{% url 'trashflix:add_movie' %}">adding a movie for review.</a>
@@ -10,13 +10,15 @@
             {% else %}
             <p>Log in to use this site in any meaningful capacity!</p>
             {% endif %}
+            <p>News will be here once that feature has been implemented.</p>
         </div>
+
     </div>
 
 </div>
 <div class="row">
     <div class="col-lg-12">
-        <div class="review_list">
+        <div class="review_list" style="">
             {% for review in reviews %}
             <h3><a href="{% url 'trashflix:review_detail' review_pk=review.pk %}">{{ review.title }}</a></h3>
             <p>by {{ review.author.username }}, reviewing {{ review.movie.title }}</p><img

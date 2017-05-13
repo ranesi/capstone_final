@@ -1,15 +1,44 @@
-.watchlist_view {
-    background-color: #bbbbbb; color: #444; border: solid 1px black; border-radius: 15px; padding: 15px; margin:30px;
-}
-
-.movie_info {
-    background-color: #bbbbbb; color: #444; border: solid 1px black; border-radius: 15px; padding: 15px;
+.review_list {
+    margin: 30px;
+    background-color: #bbbbbb;
+    color: #444;
+    border: solid 1px black;
+    border-radius: 5px;
+    padding: 15px;
 }
 
 .hello_user {
-    background-color: #bbbbbb; color: #444; border: solid 1px black; border-radius: 15px; padding: 15px;
+    margin: 30px;
+    background-color: #bbbbbb;
+    color: #444;
+    border: solid 1px black;
+    border-radius: 5px;
+    padding: 15px;
 }
 
-.review_list {
-    background-color: #bbbbbb; color: #444; border: solid 1px black; border-radius: 15px; padding: 15px;
+.watchlist_view {
+    background-color: #bbbbbb;
+    color: #444;
+    border: solid 1px black;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 30px;
+}
+
+.farewell {
+    background-color: #bbbbbb;
+    color: #444;
+    border: solid 1px black;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 30px;
+}
+
+.movie_info {
+    margin: 30px;
+    background-color: #bbbbbb;
+    color: #444;
+    border: solid 1px black;
+    border-radius: 5px;
+    padding: 15px;
 }
