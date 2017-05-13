@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from . import views
+from . import views, views_movies
 
 urlpatterns = [
 
@@ -36,25 +36,21 @@ urlpatterns = [
 
     url(
         r'^movies/all$',
-        views.show_movies,
+        views_movies.show_movies,
         name='show_movies'
     ),
     url(
         r'^movies/add$',
-        views.add_movie,
+        views_movies.add_movie,
         name='add_movie'
     ),
     url(
         r'^movies/(?P<movie_pk>\d+)/$',
-        views.movie_detail,
+        views_movies.movie_detail,
         name='movie_detail'
     ),
 
-    url(
-        '^watchlist/$',
-        views.watchlist,
-        name='watchlist'
-    ),
+
 
     # People ##############################################################
 
@@ -74,4 +70,11 @@ urlpatterns = [
         name='people_detail'
     ),
 
+    # Users  ##############################################################
+
+    url(
+        '^watchlist/$',
+        views.watchlist,
+        name='watchlist'
+    ),
 ]
